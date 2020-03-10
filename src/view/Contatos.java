@@ -40,6 +40,8 @@ public class Contatos extends javax.swing.JInternalFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
 
+        setClosable(true);
+
         jLabel1.setText("Jonas Zaidan Gaspar");
 
         jLabel2.setText("https://github.com/jzaidan");

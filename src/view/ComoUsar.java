@@ -35,6 +35,9 @@ public class ComoUsar extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
+        setClosable(true);
+        setResizable(true);
+
         jLabel1.setText("Dicas para uso da aplicação:");
 
         jLabel2.setText("1 - Deve-se realizar login utilizando usuario e senha de uma conta válida do GMAIL.");

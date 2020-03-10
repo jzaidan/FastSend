@@ -11,12 +11,7 @@ package view;
  */
 import model.Email;
 import controller.EnviaEmail;
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
+
 
 public class EnvioEmail extends javax.swing.JInternalFrame {
     Email insEmail = new Email();
@@ -248,19 +243,21 @@ public class EnvioEmail extends javax.swing.JInternalFrame {
     private void btEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnviarActionPerformed
  
      String remetente = txtRemetente.getText();
-   //  insEmail.setRemetente(remetente);
+  
      String pass = new String(txtPassRemetente.getPassword()).trim();
-   //    insEmail.setPassword(pass);
+   
      String destinatarios  = txtDestinatarios.getText();
-   //    insEmail.setDestinatarios(destinatarios);
+  
       String assunto = txtAssunto.getText();
-   //    insEmail.setAssunto(assunto);         
+         
       String corpoEmail = txtCorpoEmail.getText();
-    //    insEmail.setCorpoEmail(corpoEmail);   
-             
-    Email em = new Email (remetente,pass,destinatarios,assunto,corpoEmail);
-    em.check();
+    
+        
+    EnviaEmail envia = new EnviaEmail();
+    envia.autentication(remetente, pass, destinatarios, assunto, corpoEmail);
+    
     this.dispose();
+  
      
     }//GEN-LAST:event_btEnviarActionPerformed
 

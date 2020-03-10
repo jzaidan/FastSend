@@ -6,12 +6,6 @@
 package model;
 
 import controller.EnviaEmail;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -128,12 +122,7 @@ public class Email {
         this.corpoEmail = corpoEmail;
     }
     
-    public void check(){
-       EnviaEmail  send = new EnviaEmail();
-       send.autentication(this.remetente, this.password,this.destinatarios, this.assunto,  this.corpoEmail);
-    }
-    
-        
+ 
     
     
     
