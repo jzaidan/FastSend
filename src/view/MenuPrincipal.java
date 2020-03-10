@@ -16,6 +16,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
      */
     public MenuPrincipal() {
         initComponents();
+        setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
@@ -29,16 +30,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         telaMenuPrincipal = new javax.swing.JDesktopPane();
         Sair = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        menuNovoEmail = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        menuEnviados = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("MenuPrincipal");
 
         javax.swing.GroupLayout telaMenuPrincipalLayout = new javax.swing.GroupLayout(telaMenuPrincipal);
         telaMenuPrincipal.setLayout(telaMenuPrincipalLayout);
@@ -51,11 +52,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
             .addGap(0, 281, Short.MAX_VALUE)
         );
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/email.png"))); // NOI18N
-        jMenu1.setText("Emails");
-        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+        menuNovoEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/email.png"))); // NOI18N
+        menuNovoEmail.setText("Emails");
+        menuNovoEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu1ActionPerformed(evt);
+                menuNovoEmailActionPerformed(evt);
             }
         });
 
@@ -66,33 +67,41 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        menuNovoEmail.add(jMenuItem1);
 
-        jMenuItem2.setText("Emails Enviados");
-        jMenu1.add(jMenuItem2);
-
-        jMenuItem3.setText("Caixa de Entrada");
-        jMenu1.add(jMenuItem3);
-
-        Sair.add(jMenu1);
-
-        jMenu2.setText("Suporte");
-
-        jMenuItem4.setText("Contatos");
-        jMenu2.add(jMenuItem4);
-
-        jMenu3.setText("Sobre");
-        jMenu2.add(jMenu3);
-
-        jMenu4.setText("Sair");
-        jMenu4.addActionListener(new java.awt.event.ActionListener() {
+        menuEnviados.setText("Emails Enviados");
+        menuEnviados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu4ActionPerformed(evt);
+                menuEnviadosActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenu4);
+        menuNovoEmail.add(menuEnviados);
 
-        Sair.add(jMenu2);
+        jMenuItem3.setText("Caixa de Entrada");
+        menuNovoEmail.add(jMenuItem3);
+
+        Sair.add(menuNovoEmail);
+
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/help.png"))); // NOI18N
+        jMenu1.setText("Suporte");
+
+        jMenuItem2.setText("Como Usar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
+        jMenuItem4.setText("Contatos");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem4);
+
+        Sair.add(jMenu1);
 
         setJMenuBar(Sair);
 
@@ -111,11 +120,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+    private void menuNovoEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNovoEmailActionPerformed
       
         
         
-    }//GEN-LAST:event_jMenu1ActionPerformed
+    }//GEN-LAST:event_menuNovoEmailActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         
@@ -124,9 +133,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
         enviaEmail.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jMenu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu4ActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_jMenu4ActionPerformed
+    private void menuEnviadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEnviadosActionPerformed
+     
+    }//GEN-LAST:event_menuEnviadosActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        Contatos contato = new Contatos();
+        telaMenuPrincipal.add(contato);
+        contato.setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        ComoUsar como = new ComoUsar();
+        telaMenuPrincipal.add(como);
+        como.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,13 +187,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar Sair;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem menuEnviados;
+    private javax.swing.JMenu menuNovoEmail;
     private javax.swing.JDesktopPane telaMenuPrincipal;
     // End of variables declaration//GEN-END:variables
 }

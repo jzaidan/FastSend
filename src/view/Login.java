@@ -5,6 +5,7 @@
  */
 package view;
 
+import controller.SetIcon;
 import java.util.Arrays;
 import static javafx.application.Platform.exit;
 import javax.swing.JOptionPane;
@@ -20,6 +21,8 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        SetIcon icon = new SetIcon();
+        icon.inserirIcon(this);
     }
 
     /**
@@ -41,6 +44,7 @@ public class Login extends javax.swing.JFrame {
         txt_Senha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login_acess");
         setResizable(false);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/oie_transparent.png"))); // NOI18N
@@ -56,10 +60,16 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        bt_sair.setText("Sair");
+        bt_sair.setText("Cancelar");
         bt_sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt_sairActionPerformed(evt);
+            }
+        });
+
+        txt_Senha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_SenhaActionPerformed(evt);
             }
         });
 
@@ -83,7 +93,7 @@ public class Login extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(109, 109, 109)
                         .addComponent(jLabel1)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,18 +134,28 @@ public class Login extends javax.swing.JFrame {
         
        String pass = new String(txt_Senha.getPassword()).trim();
        
-       MenuPrincipal telaPrincipal = new MenuPrincipal();
-       this.dispose();
+       MenuPrincipal telaPrincipal = new MenuPrincipal();      
        
+        
+     
        if(txt_Login.getText().equals("admin")&& pass.equals("admin")){
-           JOptionPane.showMessageDialog(null,"sucess");
+          
            telaPrincipal.setVisible(true);
            
+           this.dispose();
            
-        }else{
-            JOptionPane.showMessageDialog(null,"error)");
+        }else if (txt_Login.getText().isEmpty() || pass.isEmpty()){
+           
+            JOptionPane.showMessageDialog(null,"usuario e senha devem ser preenchidos" );
+           
+           this.setVisible(true);
+       }
+       
+        else{
+            JOptionPane.showMessageDialog(null,"Usuário ou senha incorretos");
+            this.setVisible(true);
         }
-        
+      
         
     }//GEN-LAST:event_bt_EntrarActionPerformed
 
@@ -143,6 +163,10 @@ public class Login extends javax.swing.JFrame {
         System.exit(0);
         
     }//GEN-LAST:event_bt_sairActionPerformed
+
+    private void txt_SenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_SenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_SenhaActionPerformed
 
     /**
      * @param args the command line arguments
